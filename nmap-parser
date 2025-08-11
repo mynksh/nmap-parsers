@@ -1,1 +1,3 @@
 grep "Ports:" *.gnmap | awk '{ip=$2; for(i=4;i<=NF;i++){split($i,a,"/"); if(a[2]=="open") p=p?a[1]","p:a[1]} print ip, p; p=""}'
+
+grep "Ports:" *.gnmap | awk '{ip=$2; for(i=4;i<=NF;i++){split($i,a,"/"); if(a[2]=="open") print ip":"a[1]}}'
